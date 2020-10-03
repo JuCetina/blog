@@ -46,6 +46,6 @@ require_once 'helpers.php';
             <?php endif; ?>
             <input class="btn" type="submit" value="Registrarse">
         </form>
-        <?php borrarErrores(); ?>
+        <?php borrarAlertas(); ?>
     </div>
 </aside>

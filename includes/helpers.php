@@ -8,7 +8,7 @@ function mostrarErrores($array_errores, $nombre_indice){
     return $alerta;
 }
 
-function borrarErrores(){
+function borrarAlertas(){
     if(isset($_SESSION['errores'])){
         $_SESSION['errores'] = null;
         unset($_SESSION['errores']);
