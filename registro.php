@@ -5,67 +5,53 @@ if(isset($_POST)){
     require_once 'includes/conexion.php';
 
     //Guarda en variables los valores que llegan del formulario
-    if(isset($_POST['nombre'])){
-        $nombre = mysqli_real_escape_string($db, $_POST['nombre']);
-    }
-    else{
-        $nombre = false;
-    }
+    if(isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['password'])){
 
-    if(isset($_POST['apellidos'])){
-        $apellidos = mysqli_real_escape_string($db, $_POST['apellidos']);
-    }
-    else{
-        $apellidos = false;
-    }
+        //Quita espacios al comienzo y al final de los datos
+        $nombre = trim($_POST['nombre']);
+        $apellido = trim($_POST['apellido']);
+        $email = trim($_POST['email']);
 
-    if(isset($_POST['email'])){
-        $email = mysqli_real_escape_string($db, $_POST['email']);
-    }
-    else{
-        $email = false;
-    }
-
-    if(isset($_POST['password'])){
+        //Escapa los datos para que no existan errores al guardarlos en la base de datos
+        $nombre = mysqli_real_escape_string($db, $nombre);
+        $apellido = mysqli_real_escape_string($db, $apellido);
+        $email = mysqli_real_escape_string($db, $email);
         $password = mysqli_real_escape_string($db, $_POST['password']);
-    }
-    else{
-        $password = false;
+
+        //Sanea datos: retira etiquetas html y no codifica las comillas simples y dobles
+        $nombre = filter_var($nombre, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        $apellido = filter_var($apellido, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
     }
     
     //Array de errores
     $errores = array();
 
     //Valida los valores de las variables y guarda errores si aplica
-    if($nombre != false && !empty($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)){
+    if(!empty($nombre) && !is_numeric($nombre) && !preg_match("/[0-9]/", $nombre)){
         $nombre_validado = true;
     }
     else{
-        $nombre_validado = false;
         $errores['nombre'] = "El nombre no es válido";
     }
 
-    if($apellidos != false && !empty($apellidos) && !is_numeric($apellidos) && !preg_match("/[0-9]/", $apellidos)){
-        $apellidos_validados = true;
+    if(!empty($apellido) && !is_numeric($apellido) && !preg_match("/[0-9]/", $apellido)){
+        $apellido_validado = true;
     }
     else{
-        $apellidos_validados = false;
-        $errores['apellidos'] = "Los apellidos no son válidos";
+        $errores['apellido'] = "El apellido no es válido";
     }
 
-    if($email != false && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)){
+    if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)){
         $email_validado = true;
     }
     else{
-        $email_validado = false;
         $errores['email'] = "El email no es válido";
     }
 
-    if($password != false && !empty($password)){
+    if(!empty($password)){
         $password_validado = true;
     }
     else{
-        $password_validado = false;
         $errores['password'] = "La contraseña está vacía";
     }
     
@@ -76,7 +62,7 @@ if(isset($_POST)){
         $password_cifrada = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
 
         //Inserta usuario en bd
-        $sql = "INSERT into usuarios values (null, '$nombre', '$apellidos', '$email', '$password_cifrada', CURDATE())";
+        $sql = "INSERT into usuarios values (null, '$nombre', '$apellido', '$email', '$password_cifrada', CURDATE())";
         $insercion = mysqli_query($db, $sql);
 
         //Ver errores de sql

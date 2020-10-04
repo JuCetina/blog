@@ -25,14 +25,14 @@ require_once 'helpers.php';
         <?php endif; ?>
         <form action="registro.php" method="POST">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" required pattern="[A-Za-z]+">
+            <input type="text" name="nombre" required>
             <?php if(isset($_SESSION['errores'])): ?>
                 <?php echo mostrarErrores($_SESSION['errores'], 'nombre'); ?>
             <?php endif; ?>
-            <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" required pattern="[A-Za-z]+">
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" required>
             <?php if(isset($_SESSION['errores'])): ?>
-                <?php echo mostrarErrores($_SESSION['errores'], 'apellidos'); ?>
+                <?php echo mostrarErrores($_SESSION['errores'], 'apellido'); ?>
             <?php endif; ?>
             <label for="email">Correo electrónico</label>
             <input type="email" name="email" required>
