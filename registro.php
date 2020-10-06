@@ -2,10 +2,12 @@
 
 if(isset($_POST)){
 
+    //Incluye el archivo que tiene la conexión a la bd y hace el inicio de sesión
     require_once 'includes/conexion.php';
-
-    //Guarda en variables los valores que llegan del formulario
+    
     if(isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['password'])){
+
+        //Guarda en variables los valores que llegan del formulario
 
         //Quita espacios al comienzo y al final de los datos
         $nombre = trim($_POST['nombre']);
@@ -77,7 +79,6 @@ if(isset($_POST)){
             $errores['registro'] = "No fue posible registrar el usuario";
             $_SESSION['errores'] = $errores;
         }
-
     }
     else{
         $_SESSION['errores'] = $errores;
