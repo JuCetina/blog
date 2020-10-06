@@ -52,6 +52,45 @@
                     </p>
                 </article>
             </a>
+            <a href="">
+                <article class="entrada">
+                    <h2>Título de mi entrada</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur 
+                        adipisicing elit. Error libero, tempore incidunt 
+                        animi dolores officia voluptate rerum aliquam 
+                        nemo quibusdam repudiandae consequatur 
+                        accusantium? Eos veniam temporibus amet fuga, 
+                        labore suscipit!
+                    </p>
+                </article>
+            </a>
+            <a href="">
+                <article class="entrada">
+                    <h2>Título de mi entrada</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur 
+                        adipisicing elit. Error libero, tempore incidunt 
+                        animi dolores officia voluptate rerum aliquam 
+                        nemo quibusdam repudiandae consequatur 
+                        accusantium? Eos veniam temporibus amet fuga, 
+                        labore suscipit!
+                    </p>
+                </article>
+            </a>
+            <a href="">
+                <article class="entrada">
+                    <h2>Título de mi entrada</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur 
+                        adipisicing elit. Error libero, tempore incidunt 
+                        animi dolores officia voluptate rerum aliquam 
+                        nemo quibusdam repudiandae consequatur 
+                        accusantium? Eos veniam temporibus amet fuga, 
+                        labore suscipit!
+                    </p>
+                </article>
+            </a>
             
             
             <div id="ver-todas">

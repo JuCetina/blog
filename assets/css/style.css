@@ -28,6 +28,8 @@ body{
     border-radius: 2px;
     background: #007ee5;
     cursor: pointer;
+    margin: 5px;
+    padding: 7px 10px;
 }
 
 
@@ -90,7 +92,7 @@ body{
 
 #contenedor{
     width: 85%;
-    max-height: 550px;
+    max-height: 800px;
     margin: 30px auto;
     overflow: hidden;
 }
@@ -137,10 +139,25 @@ input[type="password"]{
     width: 95%;
 }
 
-input[type="button"],
-input[type="submit"]{
-    margin: 5px;
-    padding: 7px 10px;
+.btn-option{
+    width: 130px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.crear{
+    background-color: #359235;
+    border-color: #205e20;
+}
+
+.editar{
+    background-color: orange;
+    border-color: #a56e07;
+}
+
+.logout{
+    background-color: #c02d2d;
+    border-color: #5a1313;
 }
 
 .alerta{
