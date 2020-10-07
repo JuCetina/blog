@@ -19,3 +19,13 @@ function borrarAlertas(){
         unset($_SESSION['completado']);
     }
 }
+
+function obtenerCategorias($db){
+    $sql = "SELECT * from categorias order by id ASC";
+    $categorias = mysqli_query($db, $sql);
+    $result = array();
+    if($categorias && mysqli_num_rows($categorias) >= 1){
+        $result = $categorias;
+    }
+    return $result;
+}

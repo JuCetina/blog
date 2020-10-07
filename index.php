@@ -1,10 +1,9 @@
-
 <?php
     require_once 'includes/header.php';
 ?>
 
-
-    <div id="contenedor"><!-- Contenedor contenido principal-->
+    <!-- Inicio contenedor de contenido principal y sidebar -->
+    <div id="contenedor">
     
     <?php
         require_once 'includes/sidebar.php';
@@ -99,7 +98,8 @@
         </div>
 
 
-    </div><!-- Fin contenedor contenido principal-->
+    </div>
+    <!-- Fin contenedor de contenido principal y sidebar -->
 
     <?php
         require_once 'includes/footer.php';

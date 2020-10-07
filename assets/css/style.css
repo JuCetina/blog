@@ -76,20 +76,23 @@ body{
     display: flex;
 }
 
-#menu ul li{
+#menu ul a li{
     padding: 10px 20px;
     border-right: 1px solid #d6d6d6;
 }
 
-#menu ul li:hover{
+#menu ul a li:hover{
     background: linear-gradient(to bottom, #f2f2f2 0, #dad9d4 100%);
 }
 
-#menu ul li a{
+#menu ul a{
     font-size: 15px;
     color: #838282;
 }
 
+
+
+/* Contenedor de la secciñon principal y la barra lateral*/
 #contenedor{
     width: 85%;
     max-height: 800px;

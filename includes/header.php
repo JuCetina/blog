@@ -1,5 +1,6 @@
 <?php
     require_once 'conexion.php';
+    require_once 'helpers.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,27 +24,21 @@
         <!-- Menú -->
         <nav id="menu">
             <ul>
-                <li>
-                    <a href="index.php">Inicio</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoría 1</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoría 2</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoría 3</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoría 4</a>
-                </li>
-                <li>
-                    <a href="index.php">Sobre mí</a>
-                </li>
-                <li>
-                    <a href="index.php">Contacto</a>
-                </li>
+                <a href="index.php">
+                    <li>Inicio</li>
+                </a>
+                <?php $categorias = obtenerCategorias($db); ?>
+                <?php while($categoria = mysqli_fetch_assoc($categorias)): ?>
+                    <a href="categoria.php?id=<?=$categoria['id']?>">
+                        <li><?=$categoria['nombre']?></li>
+                    </a>
+                <?php endwhile; ?>
+                <a href="sobremi.php">
+                    <li>Sobre mí</li>
+                </a>
+                <a href="contacto.php">
+                    <li>Contacto</li>
+                </a>
             </ul>
         </nav>
     </header>
