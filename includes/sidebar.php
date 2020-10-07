@@ -10,14 +10,12 @@
             <a class="btn btn-option editar" href="editar.php">Mis datos</a>
             <a class="btn btn-option logout" href="logout.php">Cerrar sesión</a>
         </div>
-    <?php endif; ?>
-    
-    <?php if(!isset($_SESSION['usuario'])): ?>
+    <?php else: ?>
         <div id="login" class="bloque">
             <h3>Inicia sesión</h3>
             <?php if(isset($_SESSION['error_login'])): ?>
                 <div class="alerta alerta-error">
-                        <?=$_SESSION['error_login'];?>
+                    <?=$_SESSION['error_login'];?>
                 </div>
             <?php endif; ?>
             <form action="login.php" method="POST">
@@ -27,6 +25,7 @@
                 <input type="password" name="password" required>
                 <input class="btn" type="submit" value="Entrar">
             </form>
+            <?php borrarAlertasLogin(); ?>
         </div>
         <div id="register" class="bloque">
             <h3>Regístrate</h3>
@@ -60,7 +59,7 @@
                 <?php endif; ?>
                 <input class="btn" type="submit" value="Registrarse">
             </form>
-            <?php borrarAlertas(); ?>
+            <?php borrarAlertasRegistro(); ?>
         </div>
     <?php endif; ?>
 </aside>

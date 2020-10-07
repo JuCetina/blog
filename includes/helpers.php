@@ -8,7 +8,7 @@ function mostrarErrores($array_errores, $nombre_indice){
     return $alerta;
 }
 
-function borrarAlertas(){
+function borrarAlertasRegistro(){
     if(isset($_SESSION['errores'])){
         $_SESSION['errores'] = null;
         unset($_SESSION['errores']);
@@ -17,6 +17,13 @@ function borrarAlertas(){
     if(isset($_SESSION['completado'])){
         $_SESSION['completado'] = null;
         unset($_SESSION['completado']);
+    }
+}
+
+function borrarAlertasLogin(){
+    if(isset($_SESSION['error_login'])){
+        $_SESSION['error_login'] = null;
+        unset($_SESSION['error_login']);
     }
 }
 
