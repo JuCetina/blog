@@ -5,9 +5,9 @@
             <h3>
                 Bienvenido(a), <?=$_SESSION['usuario']['nombre']." ".$_SESSION['usuario']['apellidos'];?>
             </h3>
-            <a class="btn btn-option crear" href="crear.php">Crear entrada</a>
-            <a class="btn btn-option" href="crear.php">Crear categoría</a>
-            <a class="btn btn-option editar" href="editar.php">Mis datos</a>
+            <a class="btn btn-option crear" href="crear_entrada.php">Crear entrada</a>
+            <a class="btn btn-option" href="crear_categoria.php">Crear categoría</a>
+            <a class="btn btn-option editar" href="editar_usuario.php">Mis datos</a>
             <a class="btn btn-option logout" href="logout.php">Cerrar sesión</a>
         </div>
     <?php else: ?>
@@ -30,9 +30,7 @@
         <div id="register" class="bloque">
             <h3>Regístrate</h3>
             <?php if(isset($_SESSION['completado'])): ?>
-                <div class="alerta alerta-exito">
-                    <?=$_SESSION['completado'];?>
-                </div>
+                <div class="alerta alerta-exito"><?=$_SESSION['completado'];?></div>
             <?php elseif(isset($_SESSION['errores'])): ?>
                 <?= mostrarErrores($_SESSION['errores'], 'registro'); ?>
             <?php endif; ?>
