@@ -31,7 +31,7 @@ function obtenerCategorias($db){
 }
 
 function obtenerUltimasEntradas($db){
-    $sql = "SELECT e.*, c.* from entradas e ".
+    $sql = "SELECT e.*, c.nombre AS categoria from entradas e ".
             "INNER JOIN categorias c ".
             "ON e.categoria_id = c.id ".
             "ORDER BY e.id DESC LIMIT 4";

@@ -92,7 +92,7 @@ body{
 
 
 
-/* Contenedor de la secciñon principal y la barra lateral*/
+/* Contenedor de la sección principal y la barra lateral*/
 #contenedor{
     width: 85%;
     max-height: 800px;
@@ -227,6 +227,12 @@ input[type="password"]{
     width: 160px;
     margin: 40px auto 20px;
     padding: 15px;
+}
+
+.entrada_categoria_fecha{
+    color: #999;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 

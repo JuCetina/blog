@@ -18,6 +18,7 @@
                     <a href="">
                         <article class="entrada">
                             <h2><?=$entrada['titulo'];?></h2>
+                            <span class="entrada_categoria_fecha"><?=$entrada['categoria']. " | Fecha de publicación: ".$entrada['fecha'];?></span>
                             <p><?=substr($entrada['descripcion'], 0, 200)."...";?></p>
                         </article>
                     </a>
