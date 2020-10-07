@@ -12,88 +12,21 @@
         <!-- Contenido principal -->
         <div id="principal">
             <h1>Últimas entradas</h1>
-            <a href="">
-                <article class="entrada">
-                    <h2>Título de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Error libero, tempore incidunt 
-                        animi dolores officia voluptate rerum aliquam 
-                        nemo quibusdam repudiandae consequatur 
-                        accusantium? Eos veniam temporibus amet fuga, 
-                        labore suscipit!
-                    </p>
-                </article>
-            </a>
-            <a href="">
-                <article class="entrada">
-                    <h2>Título de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Error libero, tempore incidunt 
-                        animi dolores officia voluptate rerum aliquam 
-                        nemo quibusdam repudiandae consequatur 
-                        accusantium? Eos veniam temporibus amet fuga, 
-                        labore suscipit!
-                    </p>
-                </article>
-            </a>
-            <a href="">
-                <article class="entrada">
-                    <h2>Título de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Error libero, tempore incidunt 
-                        animi dolores officia voluptate rerum aliquam 
-                        nemo quibusdam repudiandae consequatur 
-                        accusantium? Eos veniam temporibus amet fuga, 
-                        labore suscipit!
-                    </p>
-                </article>
-            </a>
-            <a href="">
-                <article class="entrada">
-                    <h2>Título de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Error libero, tempore incidunt 
-                        animi dolores officia voluptate rerum aliquam 
-                        nemo quibusdam repudiandae consequatur 
-                        accusantium? Eos veniam temporibus amet fuga, 
-                        labore suscipit!
-                    </p>
-                </article>
-            </a>
-            <a href="">
-                <article class="entrada">
-                    <h2>Título de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Error libero, tempore incidunt 
-                        animi dolores officia voluptate rerum aliquam 
-                        nemo quibusdam repudiandae consequatur 
-                        accusantium? Eos veniam temporibus amet fuga, 
-                        labore suscipit!
-                    </p>
-                </article>
-            </a>
-            <a href="">
-                <article class="entrada">
-                    <h2>Título de mi entrada</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Error libero, tempore incidunt 
-                        animi dolores officia voluptate rerum aliquam 
-                        nemo quibusdam repudiandae consequatur 
-                        accusantium? Eos veniam temporibus amet fuga, 
-                        labore suscipit!
-                    </p>
-                </article>
-            </a>
+            <?php $entradas = obtenerUltimasEntradas($db); ?>
+            <?php if(!empty($entradas)): ?>
+                <?php while($entrada = mysqli_fetch_assoc($entradas)): ?>
+                    <a href="">
+                        <article class="entrada">
+                            <h2><?=$entrada['titulo'];?></h2>
+                            <p><?=substr($entrada['descripcion'], 0, 200)."...";?></p>
+                        </article>
+                    </a>
+                <?php endwhile; ?>
+            <?php endif; ?>
             
             
             <div id="ver-todas">
-                <a class="btn" href="">Ver todas las entradas</a>
+                <a class="btn" href="#">Ver todas las entradas</a>
             </div>
         </div>
 

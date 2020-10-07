@@ -28,11 +28,13 @@
                     <li>Inicio</li>
                 </a>
                 <?php $categorias = obtenerCategorias($db); ?>
-                <?php while($categoria = mysqli_fetch_assoc($categorias)): ?>
-                    <a href="categoria.php?id=<?=$categoria['id']?>">
-                        <li><?=$categoria['nombre']?></li>
-                    </a>
-                <?php endwhile; ?>
+                <?php if(!empty($categorias)): ?>
+                    <?php while($categoria = mysqli_fetch_assoc($categorias)): ?>
+                        <a href="categoria.php?id=<?=$categoria['id'];?>">
+                            <li><?=$categoria['nombre'];?></li>
+                        </a>
+                    <?php endwhile; ?>
+                <?php endif; ?>
                 <a href="sobremi.php">
                     <li>Sobre mí</li>
                 </a>
