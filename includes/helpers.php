@@ -27,6 +27,18 @@ function borrarAlertasLogin(){
     }
 }
 
+function borrarAlertasCategoria(){
+    if(isset($_SESSION['categoria_errores'])){
+        $_SESSION['categoria_errores'] = null;
+        unset($_SESSION['categoria_errores']);
+    }
+
+    if(isset($_SESSION['categoria_completado'])){
+        $_SESSION['categoria_completado'] = null;
+        unset($_SESSION['categoria_completado']);
+    }
+}
+
 function obtenerCategorias($db){
     $sql = "SELECT * from categorias order by id ASC";
     $categorias = mysqli_query($db, $sql);
