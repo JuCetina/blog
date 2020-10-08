@@ -11,8 +11,8 @@
 
         <!-- Contenido principal -->
         <div id="principal">
-            <h1>Últimas entradas</h1>
-            <?php $entradas = obtenerEntradas($db, true); ?>
+            <h1>Todas las entradas</h1>
+            <?php $entradas = obtenerEntradas($db); ?>
             <?php if(!empty($entradas)): ?>
                 <?php while($entrada = mysqli_fetch_assoc($entradas)): ?>
                     <a href="entrada.php?id=<?=$entrada['id']?>">
@@ -24,14 +24,7 @@
                     </a>
                 <?php endwhile; ?>
             <?php endif; ?>
-            
-            
-            <div id="ver-todas">
-                <a class="btn" href="entradas.php">Ver todas las entradas</a>
-            </div>
         </div>
-
-
     </div>
     <!-- Fin contenedor de contenido principal y sidebar -->
 

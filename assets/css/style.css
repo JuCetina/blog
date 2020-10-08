@@ -95,8 +95,8 @@ body{
 /* Contenedor de la sección principal y la barra lateral*/
 #contenedor{
     width: 85%;
-    min-height: 400px;
-    max-height: 700px;
+    min-height: 600px;
+    max-height: 800px;
     margin: 30px auto;
     overflow: hidden;
 }
@@ -190,12 +190,12 @@ input[type="password"]{
 #principal{
     float: left;
     width: 70%;
-    min-height: inherit;
-    max-height: inherit;
+    min-height: 550px;
+    max-height: 750px;
     background: white;
     border-radius: 5px;
-    box-shadow: 0 0 5px #ccc;
-    margin-left: 20px;
+    box-shadow: 0 0 18px 0 #ccc;
+    margin: 20px;
     padding: 20px;
     box-sizing: border-box;
     overflow: auto;

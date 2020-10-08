@@ -1,5 +1,9 @@
 <?php
     require_once 'includes/header.php';
+    $categoria_actual = obtenerCategoria($db, $_GET['id']);
+    if(!isset($categoria_actual['id'])){
+        header('Location: index.php');
+    }
 ?>
 
     <!-- Inicio contenedor de contenido principal y sidebar -->
@@ -11,8 +15,10 @@
 
         <!-- Contenido principal -->
         <div id="principal">
-            <h1>Últimas entradas</h1>
-            <?php $entradas = obtenerEntradas($db, true); ?>
+            
+            <h1><?=$categoria_actual['nombre']?></h1>
+            
+            <?php $entradas = obtenerEntradas($db, null, $categoria_actual['id']); ?>
             <?php if(!empty($entradas)): ?>
                 <?php while($entrada = mysqli_fetch_assoc($entradas)): ?>
                     <a href="entrada.php?id=<?=$entrada['id']?>">
@@ -23,15 +29,10 @@
                         </article>
                     </a>
                 <?php endwhile; ?>
+            <?php else: ?>
+                <p>Aún no existen entradas en esta categoría.</p>
             <?php endif; ?>
-            
-            
-            <div id="ver-todas">
-                <a class="btn" href="entradas.php">Ver todas las entradas</a>
-            </div>
         </div>
-
-
     </div>
     <!-- Fin contenedor de contenido principal y sidebar -->
 
