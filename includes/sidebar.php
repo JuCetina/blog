@@ -7,7 +7,7 @@
             </h3>
             <a class="btn btn-option crear" href="crear_entrada.php">Crear entrada</a>
             <a class="btn btn-option" href="crear_categoria.php">Crear categoría</a>
-            <a class="btn btn-option editar" href="editar_usuario.php">Mis datos</a>
+            <a class="btn btn-option editar" href="datos_usuario.php">Mis datos</a>
             <a class="btn btn-option logout" href="logout.php">Cerrar sesión</a>
         </div>
     <?php else: ?>

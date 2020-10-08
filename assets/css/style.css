@@ -95,7 +95,8 @@ body{
 /* Contenedor de la sección principal y la barra lateral*/
 #contenedor{
     width: 85%;
-    max-height: 800px;
+    min-height: 400px;
+    max-height: 700px;
     margin: 30px auto;
     overflow: hidden;
 }
@@ -189,6 +190,7 @@ input[type="password"]{
 #principal{
     float: left;
     width: 70%;
+    min-height: inherit;
     max-height: inherit;
     background: white;
     border-radius: 5px;

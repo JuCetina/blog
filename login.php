@@ -5,11 +5,6 @@ if(isset($_POST)){
     //Incluye archivo con la conexión a la bd y la sesión iniciada
     require_once 'includes/conexion.php';
 
-    //Borra variable de sesión con mensaje de error si existe
-    if(isset($_SESSION['error_login'])){
-        unset($_SESSION['error_login']);
-    }
-
     //Recoge los valores y los guarda en variables
     $email = trim($_POST['email']);
     $password = $_POST['password'];
