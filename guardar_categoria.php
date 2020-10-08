@@ -14,7 +14,9 @@ if(isset($_POST)){
     $errores = array();
 
     //Valida los valores de las variables y guarda errores si aplica
+
     if(!empty($nombre) && !is_numeric($nombre)){
+
         $nombre_categoria_validado = true;
     }
     else{

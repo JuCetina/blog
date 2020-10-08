@@ -1,6 +1,8 @@
 <?php
+
     require_once 'includes/redireccion.php';
     require_once 'includes/header.php';
+
 ?>
 
     <!-- Inicio contenedor de contenido principal y sidebar -->
