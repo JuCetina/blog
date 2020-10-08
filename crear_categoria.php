@@ -1,8 +1,6 @@
 <?php
-
-    require_once 'includes/redireccion.php';
     require_once 'includes/header.php';
-
+    require_once 'includes/redireccion.php';
 ?>
 
     <!-- Inicio contenedor de contenido principal y sidebar -->
@@ -15,8 +13,8 @@
         <!-- Contenido principal -->
         <div id="principal">
             <h1>Crear categoría</h1>
-            <p>Cree una categoría para que los usuarios puedan
-             usarlas al momento de crear entradas.</p>
+            <p>Cree una categoría para que el administrador del sistema pueda
+             usarla al momento de crear entradas.</p>
             <?php if(isset($_SESSION['categoria_completado'])): ?>
                 <div class="alerta alerta-exito"><?=$_SESSION['categoria_completado'];?></div>
             <?php elseif(isset($_SESSION['categoria_errores'])): ?>
