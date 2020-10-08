@@ -24,8 +24,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" required>
                 <input class="btn" type="submit" value="Entrar">
-            </form>
-            <?php borrarAlertasLogin(); ?>
+            </form>    
         </div>
         <div id="register" class="bloque">
             <h3>Regístrate</h3>
@@ -57,7 +56,7 @@
                 <?php endif; ?>
                 <input class="btn" type="submit" value="Registrarse">
             </form>
-            <?php borrarAlertasRegistro(); ?>
+            <?php borrarAlertas(); ?>
         </div>
     <?php endif; ?>
 </aside>

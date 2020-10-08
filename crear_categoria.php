@@ -30,7 +30,7 @@
                 <?php endif; ?>
                 <input type="submit" class="btn" value="Crear categoría"> 
             </form>
-            <?php borrarAlertasCategoria(); ?>
+            <?php borrarAlertas(); ?>
         </div>
     </div>
     <!-- Fin contenedor de contenido principal y sidebar -->

@@ -48,7 +48,7 @@
 
                 <input type="submit" class="btn" value="Crear entrada"> 
             </form>
-            <?php borrarAlertasEntrada(); ?>
+            <?php borrarAlertas(); ?>
         </div>
     </div>
     <!-- Fin contenedor de contenido principal y sidebar -->

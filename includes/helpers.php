@@ -8,7 +8,7 @@ function mostrarErrores($array_errores, $nombre_indice){
     return $alerta;
 }
 
-function borrarAlertasRegistro(){
+function borrarAlertas(){
     if(isset($_SESSION['errores'])){
         $_SESSION['errores'] = null;
         unset($_SESSION['errores']);
@@ -18,16 +18,12 @@ function borrarAlertasRegistro(){
         $_SESSION['completado'] = null;
         unset($_SESSION['completado']);
     }
-}
 
-function borrarAlertasLogin(){
     if(isset($_SESSION['error_login'])){
         $_SESSION['error_login'] = null;
         unset($_SESSION['error_login']);
     }
-}
 
-function borrarAlertasCategoria(){
     if(isset($_SESSION['categoria_errores'])){
         $_SESSION['categoria_errores'] = null;
         unset($_SESSION['categoria_errores']);
@@ -37,9 +33,7 @@ function borrarAlertasCategoria(){
         $_SESSION['categoria_completado'] = null;
         unset($_SESSION['categoria_completado']);
     }
-}
 
-function borrarAlertasEntrada(){
     if(isset($_SESSION['entrada_errores'])){
         $_SESSION['entrada_errores'] = null;
         unset($_SESSION['entrada_errores']);
