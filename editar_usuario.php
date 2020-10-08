@@ -62,33 +62,47 @@ if(isset($_POST)){
 
         $usuario = $_SESSION['usuario'];
 
-        //Cifra contraseña x 4 veces con PASSWORD_BCRYPT
-        $password_cifrada = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
+        //Consulta si el email ingresado ya existe en la base de datos
+        $sql_email = "SELECT id, email from usuarios where email = '$email'";
+        $resultado = mysqli_query($db, $sql_email);
+        $comprueba = mysqli_fetch_assoc($resultado);
 
-        //Actualiza usuario en bd
-        $sql = "UPDATE usuarios "
-                ."SET nombre = '$nombre', "
-                ."apellidos = '$apellido', "
-                ."email = '$email', "
-                ."password = '$password_cifrada' "
-                ."where id = ".$usuario['id'];
+        //Si el email existe pero es del usuario actualmente logueado o
+        //Si el email no existe en la base de datos, permite actualizar datos del usuario
+        if($comprueba['id'] == $usuario['id'] || empty($comprueba)){
 
-        $insercion = mysqli_query($db, $sql);
-
-        //Ver errores de sql
-        //var_dump(mysqli_error($db));
-        //die();
-
-        //Crea mensajes en $_SESSION
-        if($insercion){
-            $_SESSION['completado'] = "La actualización se ha completado con éxito";
-            $_SESSION['usuario']['nombre'] = $nombre;
-            $_SESSION['usuario']['apellidos'] = $apellido;
-            $_SESSION['usuario']['email'] = $email;
-            $_SESSION['usuario']['password'] = $password_cifrada;
+            //Cifra contraseña x 4 veces con PASSWORD_BCRYPT
+            $password_cifrada = password_hash($password, PASSWORD_BCRYPT, ['cost'=>4]);
+    
+            //Actualiza usuario en bd
+            $sql = "UPDATE usuarios "
+                    ."SET nombre = '$nombre', "
+                    ."apellidos = '$apellido', "
+                    ."email = '$email', "
+                    ."password = '$password_cifrada' "
+                    ."where id = ".$usuario['id'];
+    
+            $insercion = mysqli_query($db, $sql);
+    
+            //Ver errores de sql
+            //var_dump(mysqli_error($db));
+            //die();
+    
+            //Crea mensajes en $_SESSION
+            if($insercion){
+                $_SESSION['completado'] = "La actualización se ha completado con éxito";
+                $_SESSION['usuario']['nombre'] = $nombre;
+                $_SESSION['usuario']['apellidos'] = $apellido;
+                $_SESSION['usuario']['email'] = $email;
+                $_SESSION['usuario']['password'] = $password_cifrada;
+            }
+            else{
+                $errores['actualizacion'] = "No fue posible actualizar el usuario";
+                $_SESSION['errores'] = $errores;
+            }
         }
         else{
-            $errores['actualizacion'] = "No fue posible actualizar el usuario";
+            $errores['actualizacion'] = "El email ingresado ya pertenece a otro usuario";
             $_SESSION['errores'] = $errores;
         }
     }
