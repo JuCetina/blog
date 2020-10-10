@@ -117,7 +117,7 @@ input[type="password"]{
 #contenedor{
     width: 85%;
     min-height: 600px;
-    max-height: 800px;
+    max-height: 850px;
     margin: 30px auto;
     overflow: hidden;
 }
