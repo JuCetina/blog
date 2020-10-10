@@ -21,6 +21,27 @@ body{
     background-color: #f4f4f4;
 }
 
+label{
+    margin: 2px 5px;
+}
+
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    margin: 2px 5px 6px;
+}
+
+label,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    display: block;
+    width: 95%;
+}
+
 .btn{
     display: block;
     color: white;
@@ -123,24 +144,6 @@ body{
 
 .bloque h3 {
     margin: 5px;
-}
-
-label{
-    margin: 2px 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"]{
-    margin: 2px 5px 6px;
-}
-
-label, 
-input[type="text"],
-input[type="email"],
-input[type="password"]{
-    display: block;
-    width: 95%;
 }
 
 .btn-option{
@@ -250,4 +253,12 @@ footer{
     border: 1px solid #c9c9c9;
     border-bottom: none;
     border-radius: 8px 8px 0 0;
+}
+
+
+
+/*Entrada*/
+.botones{
+    display: flex;
+    padding: 10px;
 }

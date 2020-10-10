@@ -11,6 +11,12 @@
 
         <!-- Contenido principal -->
         <div id="principal">
+            <?php if(isset($_SESSION['eliminacion_entrada_completado'])): ?>
+                <div class="alerta alerta-exito"><?=$_SESSION['eliminacion_entrada_completado'];?></div>
+            <?php elseif(isset($_SESSION['errores'])): ?>
+                <?= mostrarErrores($_SESSION['errores'], 'eliminacion_entrada'); ?>
+            <?php endif; ?>
+            <?php borrarAlertas(); ?>
             <h1>Últimas entradas</h1>
             <?php $entradas = obtenerEntradas($db, true); ?>
             <?php if(!empty($entradas)): ?>

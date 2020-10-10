@@ -43,6 +43,11 @@ function borrarAlertas(){
         $_SESSION['entrada_completado'] = null;
         unset($_SESSION['entrada_completado']);
     }
+
+    if(isset($_SESSION['eliminacion_entrada_completado'])){
+        $_SESSION['eliminacion_entrada_completado'] = null;
+        unset($_SESSION['eliminacion_entrada_completado']);
+    }
 }
 
 function obtenerCategorias($db){
@@ -89,9 +94,13 @@ function obtenerEntradas($db, $limit = null, $categoria_id = null){
 }
 
 function obtenerEntrada($db, $id){
-    $sql =  "SELECT e.*, c.nombre AS categoria from entradas e ".
+    $sql =  "SELECT e.*, c.nombre AS categoria, ". 
+            "CONCAT(u.nombre, ' ', u.apellidos) AS nombre_usuario ".
+            "from entradas e ".
             "INNER JOIN categorias c ".
             "ON e.categoria_id = c.id ".
+            "INNER JOIN usuarios u ".
+            "ON e.usuario_id = u.id ".
             "WHERE e.id = $id";
     $entrada = mysqli_query($db, $sql);
     $result = array();

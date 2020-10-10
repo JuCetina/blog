@@ -48,11 +48,32 @@ if(isset($_POST)){
         $errores['entrada_categoria'] = "La categoría no es válida";
     }
 
+    if(!empty($usuario)){
+        $usuario_validado = true;
+    }
+    else{
+        $errores['entrada_usuario'] = "El usuario no es válido";
+    }
+
     //Si no hay errores, se insertan los datos en la base de datos
     if(count($errores) == 0){
+        //Si es una edición
+        if(isset($_GET['editar'])){
+            $entrada_id = $_GET['editar'];
 
-        //Inserta categoría en bd
-        $sql = "INSERT into entradas values (null, '$usuario', '$categoria', '$titulo', '$descripcion', CURDATE())";
+            //Edita entrada en bd
+            $sql =  "UPDATE entradas SET ".
+                    "categoria_id = '$categoria', ".
+                    "titulo = '$titulo', ".
+                    "descripcion = '$descripcion', ".
+                    "fecha = CURDATE() ".
+                    "WHERE id = '$entrada_id' AND usuario_id = '$usuario'";
+        }
+        //Si es una inserción
+        else{
+            //Inserta entrada en bd
+            $sql = "INSERT into entradas values (null, '$usuario', '$categoria', '$titulo', '$descripcion', CURDATE())";
+        }
         $insercion = mysqli_query($db, $sql);
 
         //Ver errores de sql
@@ -73,4 +94,12 @@ if(isset($_POST)){
     }
 }
 
-header('Location:crear_entrada.php');
+//Si es una edición redirige al formulario para editar entradas
+if(isset($_GET['editar'])){
+    header("Location:editar_entrada.php?id=$entrada_id");
+}
+//Si es una inserción redirige al formulario para crear entradas
+else{
+    header("Location:crear_entrada.php");
+}    
+    

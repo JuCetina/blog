@@ -1,5 +1,7 @@
 <?php
     require_once 'includes/header.php';
+
+    //Redirecciona al index.php si el id de la categoria no existe
     $categoria_actual = obtenerCategoria($db, $_GET['id']);
     if(!isset($categoria_actual['id'])){
         header('Location: index.php');
