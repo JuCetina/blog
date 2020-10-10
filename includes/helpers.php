@@ -70,13 +70,17 @@ function obtenerCategoria($db, $id){
     return $result;
 }
 
-function obtenerEntradas($db, $limit = null, $categoria_id = null){
+function obtenerEntradas($db, $limit = null, $categoria_id = null, $busqueda = null){
     $sql = "SELECT e.*, c.nombre AS categoria from entradas e ".
             "INNER JOIN categorias c ".
             "ON e.categoria_id = c.id ";
     
     if(!empty($categoria_id)){
         $sql .= "WHERE e.categoria_id = $categoria_id ";
+    }
+
+    if(!empty($busqueda)){
+        $sql .= "WHERE e.titulo LIKE '%$busqueda%' OR e.descripcion LIKE '%$busqueda%'";
     }
 
     $sql .= "ORDER BY e.id DESC ";
