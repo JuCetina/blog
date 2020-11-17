@@ -35,10 +35,10 @@
                         </a>
                     <?php endwhile; ?>
                 <?php endif; ?>
-                <a href="sobremi.php">
+                <a href="index.php">
                     <li>Sobre mí</li>
                 </a>
-                <a href="contacto.php">
+                <a href="index.php">
                     <li>Contacto</li>
                 </a>
             </ul>
